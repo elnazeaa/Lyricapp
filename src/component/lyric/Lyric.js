@@ -1,22 +1,29 @@
-import React from "react";
+import React, { useContext } from "react";
 import notFound from "../../images/notFound.jpg";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { LyricContext } from "../../context/LyricContext";
 
 const Lyric = ({ item }) => {
+  const { sendImg } = useContext(LyricContext);
   const {
     album: { cover_medium },
     artist: { name },
     title,
   } = item;
-  console.log(cover_medium, title, name);
   return (
     <Wrapper className="lyricsContainer">
       <img src={cover_medium ? cover_medium : notFound} alt={name} />
       <div className="content">
         <h3 className="name">Artist : {name}</h3>
         <p className="title">Song Name : {title}</p>
-        <Link className="btn" to="/">
+        <Link
+          className="btn"
+          to={`/${name}/${title}`}
+          onClick={() => {
+            sendImg(cover_medium);
+          }}
+        >
           lyric
         </Link>
       </div>

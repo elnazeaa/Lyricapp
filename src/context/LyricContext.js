@@ -10,8 +10,10 @@ const LyricContextProvider = (props) => {
     lyrics: [],
     lyricData: [],
     lyricTerm: "",
-    submitTerm: "",
+    submitTerm: "part",
     loader: false,
+    lyricContent: "",
+    image: "",
   };
 
   const [state, dispatch] = useReducer(LyricReducer, initalState);
@@ -32,17 +34,22 @@ const LyricContextProvider = (props) => {
       const response = await fetch(`${apiUrl}/suggest/${state.submitTerm}`);
       const res = await response.json();
       dispatch({ type: "GET_LYRICS", payload: res });
-    } catch (error) {
-      console.log(error);
-    }
+    } catch (error) {}
   };
 
   useEffect(() => {
     fetchLyrics();
   }, [state.submitTerm]);
 
+  const sendImg = (img) => {
+    console.log(img);
+    dispatch({ type: "SEND_IMG", payload: img });
+  };
+
   return (
-    <LyricContext.Provider value={{ ...state, handleChange, handleSubmit }}>
+    <LyricContext.Provider
+      value={{ ...state, handleChange, handleSubmit, sendImg }}
+    >
       {props.children}
     </LyricContext.Provider>
   );

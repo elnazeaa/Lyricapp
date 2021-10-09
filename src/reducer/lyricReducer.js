@@ -16,6 +16,9 @@ const LyricReducer = (state, action) => {
       loader: false,
     };
   }
+  if (action.type === "SEND_IMG") {
+    return { ...state, image: action.payload };
+  }
   return state;
 };
 

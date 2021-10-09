@@ -17,6 +17,7 @@ const SearchBar = (props) => {
             onChange={handleChange}
             value={lyricTerm}
           />
+          <p className="note">Note : some of songs have no results</p>
         </form>
       </Wrapper>
     </>
@@ -34,6 +35,11 @@ const Wrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+  }
+  .note {
+    margin: 5px;
+    color: #f00;
   }
   .search {
     &__container {
