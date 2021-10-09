@@ -1,12 +1,12 @@
 import React from "react";
-import Navbar from "../component/navbar/Navbar";
-import SearchBar from "../component/searchBar/SearchBar";
+import { LyricTitle, Navbar, SearchBar } from "../component/index";
 
 const HomePage = (props) => {
   return (
     <>
       <Navbar />
       <SearchBar />
+      <LyricTitle />
     </>
   );
 };

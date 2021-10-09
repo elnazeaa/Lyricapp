@@ -1,24 +1,40 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
+import { LyricContext } from "../../context/LyricContext";
 
 const SearchBar = (props) => {
+  const { lyricTerm, handleChange, handleSubmit } = useContext(LyricContext);
+
   return (
     <>
-      <Wrapper class="search__container">
-        <p class="search__title">Find Song Lyrics</p>
-        <input class="search__input" type="text" placeholder="Search...." />
+      <Wrapper className="search__container">
+        <p className="search__title">Find Song Lyrics</p>
+        <form onSubmit={handleSubmit}>
+          <input
+            className="search__input"
+            type="text"
+            placeholder="Search...."
+            onChange={handleChange}
+            value={lyricTerm}
+          />
+        </form>
       </Wrapper>
     </>
   );
 };
 
 const Wrapper = styled.div`
-  width: 20%;
   margin: 7px auto;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  form {
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   .search {
     &__container {
       padding-top: 64px;
@@ -94,7 +110,9 @@ const Wrapper = styled.div`
     }
   }
   @media (max-width: 900px) {
-    width: 70%;
+    form {
+      width: 85%;
+    }
   }
 `;
 

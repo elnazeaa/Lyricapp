@@ -8,3 +8,8 @@
 body {
   background: #fbf7f7;
 }
+
+li,
+a {
+  text-decoration: none;
+}
