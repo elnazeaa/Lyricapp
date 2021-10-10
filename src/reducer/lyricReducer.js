@@ -19,6 +19,9 @@ const LyricReducer = (state, action) => {
   if (action.type === "SEND_IMG") {
     return { ...state, image: action.payload };
   }
+  if (action.type === "RESET") {
+    return { ...state, prevUrl: "", nextUrl: "" };
+  }
   return state;
 };
 

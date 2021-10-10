@@ -42,6 +42,9 @@ const Wrapper = styled.div`
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    flex-wrap: wrap;
+    width: 250px;
+    object-fit: cover;
   }
   .btn {
     cursor: pointer;
@@ -52,6 +55,12 @@ const Wrapper = styled.div`
     border-radius: 3px;
     margin: 9px;
     font-size: 1rem;
+  }
+  .title {
+    font-size: 15px;
+  }
+  .lyricsContainer {
+    width: 100%;
   }
 `;
 

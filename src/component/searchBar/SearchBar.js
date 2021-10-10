@@ -17,7 +17,10 @@ const SearchBar = (props) => {
             onChange={handleChange}
             value={lyricTerm}
           />
-          <p className="note">Note : some of songs have no results</p>
+          <p className="note">
+            Note : some of songs have no results and with lots of requests
+            server will stop
+          </p>
         </form>
       </Wrapper>
     </>
