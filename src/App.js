@@ -10,7 +10,7 @@ const App = (props) => {
       <BrowserRouter>
         <Navbar />
         <Switch>
-          <Route exact path="/">
+          <Route exact path="/Lyricapp">
             <HomePage />
           </Route>
           <Route exact path="/:artistName/:songName">
